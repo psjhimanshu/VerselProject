@@ -1,0 +1,53 @@
+{
+  "skills": [
+    "Java",
+    "Python",
+    "Flutter",
+    "Spring Boot",
+    "Data Science",
+    "Android Development",
+    "JavaScript",
+    "C/C++",
+    "MySQL",
+    "Firebase"
+  ],
+  "projects": [
+    "Password Manager App",
+    "Wineintory App",
+    "File Transfer Software",
+    "Music Clone Web Page",
+    "Garage Management System",
+    "Train Management System",
+    "Book My Movies",
+    "QR Generator",
+    "Stopwatch",
+    "Calculator",
+    "To-Do App"
+  ],
+  "experience": [
+    {
+      "role": "Android App Developer Intern",
+      "company": "Sikar Infotech",
+      "duration": "March 2025 - May 2025",
+      "description": "Contributed to a major project, demonstrating strong team management, communication skills, and a proactive work ethic."
+    },
+    {
+      "role": "Data Science Intern",
+      "company": "Technocolabs",
+      "duration": "November 2024 - December 2024",
+      "description": "Worked on a data-driven project, applying statistical models and machine learning techniques to generate insights."
+    },
+    {
+      "role": "Tech Leader",
+      "company": "CSI Student Branch, Sobhasaria Group of Institutions",
+      "duration": "2022 - Present",
+      "description": "Led the college’s CSI branch, organizing and managing technical events, workshops, and seminars."
+    }
+  ],
+  "contact": {
+    "email": "psjhimanshu@gmail.com",
+    "linkedin": "https://linkedin.com/in/himanshu-saini-java-developer",
+    "github": "https://github.com/psjhimanshu",
+    "phone": "+91 9460792883"
+  }
+}

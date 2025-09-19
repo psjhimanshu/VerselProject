@@ -383,6 +383,28 @@ closeBtn.addEventListener("click", () => {
   document.querySelector(".back-to-top").style.display = "flex"; // show back-to-top again
 });
 
+/// Helper to format AI output
+function formatOutput(output) {
+  // अगर "key: value" pattern है तो list बना दो
+  if (output.includes(":")) {
+    return (
+      "<ul>" +
+      output
+        .split("\n")
+        .filter(line => line.trim() !== "") // खाली line हटाओ
+        .map(line => {
+          const [key, value] = line.split(":");
+          return `<li><b>${key.trim()}:</b> ${value ? value.trim() : ""}</li>`;
+        })
+        .join("") +
+      "</ul>"
+    );
+  }
+
+  // Normal text को सिर्फ newline → <br> में बदलो
+  return output.replace(/\n/g, "<br>");
+}
+
 // Chat Function
 async function sendMessage() {
   const inputEl = document.getElementById("userInput");
@@ -392,7 +414,6 @@ async function sendMessage() {
 
   if (!input) return;
 
-  // Disable send button (thinking mode)
   sendBtn.disabled = true;
   sendBtn.style.opacity = "0.5";
   sendBtn.style.cursor = "not-allowed";
@@ -400,7 +421,6 @@ async function sendMessage() {
   box.innerHTML += `<p><b>You:</b> ${input}</p>`;
   inputEl.value = "";
 
-  // Show temporary "thinking..."
   const thinkingMsg = document.createElement("p");
   thinkingMsg.innerHTML = `<b>AI:</b> <em>thinking...</em>`;
   box.appendChild(thinkingMsg);
@@ -414,14 +434,12 @@ async function sendMessage() {
     });
 
     const data = await res.json();
-    thinkingMsg.innerHTML = `<b>AI:</b> ${data.output}`;
+    thinkingMsg.innerHTML = `<b>AI:</b> ${formatOutput(data.output)}`;
   } catch (err) {
     thinkingMsg.innerHTML = `<b>AI:</b> Sorry, something went wrong.`;
   }
 
-  // Enable button again
   sendBtn.disabled = false;
   sendBtn.style.opacity = "1";
   sendBtn.style.cursor = "pointer";
 }
-
